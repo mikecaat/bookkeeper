@@ -67,6 +67,8 @@ commands:
     description: Print readonly bookies
   - flag: -hostnames
     description: Also print hostname of the bookie
+  - flag: -all
+    description: Print all bookies
 - name: listfilesondisc
   description: List the files in JournalDirectory/LedgerDirectories/IndexDirectories.
   options:
@@ -81,6 +83,8 @@ commands:
   options:
   - flag: -meta
     description: Print metadata
+  - flag: -bookieId <hostname:port|ip:port>
+    description: List ledgers residing in this bookie
 - name: listunderreplicated
   description: List ledgers marked as underreplicated, with optional options to specify missing replica (BookieId) and to exclude missing replica.
   options:
@@ -165,12 +169,12 @@ commands:
 - name: updatecookie
   description: Update bookie id in cookie.
   options:
-  - flag: -bookieId <hostname|ip>
+  - flag: -bookieId <hostname:port|ip:port>
     description: Bookie Id
 - name: updateledgers
   description:  Update bookie id in ledgers (this may take a long time).
   options:
-  - flag: -bookieId <hostname|ip>
+  - flag: -bookieId <hostname:port|ip:port>
     description: Bookie Id
   - flag: -updatespersec N
     description: Number of ledgers updating per second (default 5 per sec)
